@@ -1,7 +1,20 @@
 class CategoriesController < ApplicationController
-  def new
+  def index
   end
 
   def create
+    @category = Category.new(category_params)
+
+    if @category.save
+      render json: @category, status: :created, location: @category
+    else
+      rendet json: @category.errors, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def category_params
+    params.require(:category).permit(:name)
   end
 end
