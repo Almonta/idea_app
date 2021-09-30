@@ -1,6 +1,5 @@
 module Api
   module V1
-
     class IdeasController < ApplicationController
       # skip_before_action :verify_authenticity_token
 
@@ -24,6 +23,5 @@ module Api
         params.permit(:body, :category_id)
       end
     end
-
   end
 end
